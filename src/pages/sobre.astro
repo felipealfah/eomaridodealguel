@@ -119,7 +119,18 @@ const organizationSchema = {
 
         {/* Team Image */}
         <div class="relative h-96 md:h-96 rounded-lg overflow-hidden shadow-lg">
-          <img src="/equipeeomaridodealuguel.png" alt="Equipe EO Marido de Aluguel em Águas Claras - Profissionais especializados em eletricista, encanador e desentupimento" class="w-full h-full object-cover" />
+          <picture>
+            <source srcset="/equipeeomaridodealuguel.webp" type="image/webp" />
+            <img
+              src="/equipeeomaridodealuguel.png"
+              alt="Equipe EO Marido de Aluguel em Águas Claras - Profissionais especializados em eletricista, encanador e desentupimento"
+              class="w-full h-full object-cover"
+              width="1200"
+              height="800"
+              loading="lazy"
+              decoding="async"
+            />
+          </picture>
       </div>
     </div>
   </section>

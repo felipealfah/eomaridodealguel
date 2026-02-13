@@ -24,6 +24,16 @@ const { title, description } = Astro.props;
     <title>{title}</title>
     <link rel="canonical" href={Astro.url} />
 
+    {/* Preload LCP Image */}
+    <link
+      rel="preload"
+      as="image"
+      href="/hero_eomaridodealuguelaguasclaras.webp"
+      fetchpriority="high"
+      imagesrcset="/hero_eomaridodealuguelaguasclaras.webp"
+      type="image/webp"
+    />
+
     {/* Open Graph Tags - Compartilhamento Social */}
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
@@ -40,9 +50,6 @@ const { title, description } = Astro.props;
     <meta name="twitter:description" content={description} />
     <meta name="twitter:image" content={`${Astro.url}maridodealuguelaguasclaras.png`} />
 
-    {/* Preconnect para Google Fonts */}
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 
     {/* Prefetch de rotas importantes */}
     <link rel="prefetch" href="/sobre" />
