@@ -1,0 +1,165 @@
+---
+// FAQ Schema para Google
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Quanto custa um serviço de marido de aluguel em Águas Claras?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Nossos preços variam conforme o tipo de serviço. Serviços de instalação começam em R$ 80, desentupimento a partir de R$ 100, serviços hidráulicos a partir de R$ 120 e elétricos a partir de R$ 150. Oferecemos orçamento gratuito e sem compromisso. Entre em contato para uma cotação personalizada!"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Faz muita sujeira um serviço de desentupimento?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Não! Um dos nossos diferenciais é trabalhar de forma limpa e organizada. Utilizamos equipamentos profissionais que minimizam sujeira e bagunça. Ao final do serviço, a área fica completamente limpa. Garantimos satisfação com nosso trabalho!"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Quanto tempo leva para resolver um problema?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Depende da complexidade do serviço. Serviços simples como instalação de prateleiras ou reparos rápidos levam entre 30 minutos a 1 hora. Serviços mais complexos como elétrica e encanação podem variar de 1 a 3 horas. Oferecemos atendimento no mesmo dia quando possível!"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Vocês têm garantia no trabalho realizado?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Sim! Todos os nossos serviços têm garantia de satisfação. Se você não ficar satisfeito com o resultado, refazemos o trabalho sem cobrar nada adicional. Sua confiança é nosso maior compromisso!"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Como agendar um serviço?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "É muito fácil! Você pode nos ligar pelo telefone (61) 98405-7851, enviar um WhatsApp, ou acessar nosso site para solicitar um orçamento. Respondemos rapidamente e agendamos no melhor horário para você. Oferecemos atendimento com agilidade em Águas Claras e região!"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Trabalham em finais de semana e feriados?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Trabalhamos de segunda a sábado, das 8h às 18h. Para emergências (vazamentos, falta de luz, etc), oferecemos atendimento 24h. Consulte a disponibilidade entrando em contato conosco!"
+      }
+    }
+  ]
+};
+---
+
+<!-- FAQ Schema JSON-LD -->
+<script type="application/ld+json">
+  {JSON.stringify(faqSchema)}
+</script>
+
+<section class="py-12 md:py-16 lg:py-20">
+  <div class="container mx-auto px-4">
+    <div class="text-center mb-12 md:mb-16">
+      <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+        Perguntas Frequentes
+      </h2>
+      <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+        Tire suas dúvidas sobre nossos serviços de marido de aluguel em Águas Claras
+      </p>
+    </div>
+
+    <div class="max-w-3xl mx-auto space-y-4">
+      {/* FAQ Item 1 */}
+      <details class="bg-white rounded-lg border border-gray-200 overflow-hidden hover:border-primary transition-colors group">
+        <summary class="flex items-center justify-between p-6 md:p-8 cursor-pointer hover:bg-gray-50 transition-colors">
+          <h3 class="text-lg font-semibold text-gray-900">Quanto custa um serviço de marido de aluguel em Águas Claras?</h3>
+          <svg class="w-6 h-6 text-primary transform transition-transform group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+          </svg>
+        </summary>
+        <div class="px-6 md:px-8 pb-6 md:pb-8 border-t border-gray-100 text-gray-600 leading-relaxed">
+          Nossos preços variam conforme o tipo de serviço. Serviços de instalação começam em R$ 80, desentupimento a partir de R$ 100, serviços hidráulicos a partir de R$ 120 e elétricos a partir de R$ 150. Oferecemos orçamento gratuito e sem compromisso. Entre em contato para uma cotação personalizada!
+        </div>
+      </details>
+
+      {/* FAQ Item 2 */}
+      <details class="bg-white rounded-lg border border-gray-200 overflow-hidden hover:border-primary transition-colors group">
+        <summary class="flex items-center justify-between p-6 md:p-8 cursor-pointer hover:bg-gray-50 transition-colors">
+          <h3 class="text-lg font-semibold text-gray-900">Faz muita sujeira um serviço de desentupimento?</h3>
+          <svg class="w-6 h-6 text-primary transform transition-transform group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+          </svg>
+        </summary>
+        <div class="px-6 md:px-8 pb-6 md:pb-8 border-t border-gray-100 text-gray-600 leading-relaxed">
+          Não! Um dos nossos diferenciais é trabalhar de forma limpa e organizada. Utilizamos equipamentos profissionais que minimizam sujeira e bagunça. Ao final do serviço, a área fica completamente limpa. Garantimos satisfação com nosso trabalho!
+        </div>
+      </details>
+
+      {/* FAQ Item 3 */}
+      <details class="bg-white rounded-lg border border-gray-200 overflow-hidden hover:border-primary transition-colors group">
+        <summary class="flex items-center justify-between p-6 md:p-8 cursor-pointer hover:bg-gray-50 transition-colors">
+          <h3 class="text-lg font-semibold text-gray-900">Quanto tempo leva para resolver um problema?</h3>
+          <svg class="w-6 h-6 text-primary transform transition-transform group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+          </svg>
+        </summary>
+        <div class="px-6 md:px-8 pb-6 md:pb-8 border-t border-gray-100 text-gray-600 leading-relaxed">
+          Depende da complexidade do serviço. Serviços simples como instalação de prateleiras ou reparos rápidos levam entre 30 minutos a 1 hora. Serviços mais complexos como elétrica e encanação podem variar de 1 a 3 horas. Oferecemos atendimento no mesmo dia quando possível!
+        </div>
+      </details>
+
+      {/* FAQ Item 4 */}
+      <details class="bg-white rounded-lg border border-gray-200 overflow-hidden hover:border-primary transition-colors group">
+        <summary class="flex items-center justify-between p-6 md:p-8 cursor-pointer hover:bg-gray-50 transition-colors">
+          <h3 class="text-lg font-semibold text-gray-900">Vocês têm garantia no trabalho realizado?</h3>
+          <svg class="w-6 h-6 text-primary transform transition-transform group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+          </svg>
+        </summary>
+        <div class="px-6 md:px-8 pb-6 md:pb-8 border-t border-gray-100 text-gray-600 leading-relaxed">
+          Sim! Todos os nossos serviços têm garantia de satisfação. Se você não ficar satisfeito com o resultado, refazemos o trabalho sem cobrar nada adicional. Sua confiança é nosso maior compromisso!
+        </div>
+      </details>
+
+      {/* FAQ Item 5 */}
+      <details class="bg-white rounded-lg border border-gray-200 overflow-hidden hover:border-primary transition-colors group">
+        <summary class="flex items-center justify-between p-6 md:p-8 cursor-pointer hover:bg-gray-50 transition-colors">
+          <h3 class="text-lg font-semibold text-gray-900">Como agendar um serviço?</h3>
+          <svg class="w-6 h-6 text-primary transform transition-transform group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+          </svg>
+        </summary>
+        <div class="px-6 md:px-8 pb-6 md:pb-8 border-t border-gray-100 text-gray-600 leading-relaxed">
+          É muito fácil! Você pode nos ligar pelo telefone (61) 98405-7851, enviar um WhatsApp, ou acessar nosso site para solicitar um orçamento. Respondemos rapidamente e agendamos no melhor horário para você. Oferecemos atendimento com agilidade em Águas Claras e região!
+        </div>
+      </details>
+
+      {/* FAQ Item 6 */}
+      <details class="bg-white rounded-lg border border-gray-200 overflow-hidden hover:border-primary transition-colors group">
+        <summary class="flex items-center justify-between p-6 md:p-8 cursor-pointer hover:bg-gray-50 transition-colors">
+          <h3 class="text-lg font-semibold text-gray-900">Trabalham em finais de semana e feriados?</h3>
+          <svg class="w-6 h-6 text-primary transform transition-transform group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+          </svg>
+        </summary>
+        <div class="px-6 md:px-8 pb-6 md:pb-8 border-t border-gray-100 text-gray-600 leading-relaxed">
+          Trabalhamos de segunda a sábado, das 8h às 18h. Para emergências (vazamentos, falta de luz, etc), oferecemos atendimento 24h. Consulte a disponibilidade entrando em contato conosco!
+        </div>
+      </details>
+    </div>
+
+    <div class="mt-12 md:mt-16 text-center">
+      <p class="text-lg text-gray-600 mb-6">Ainda tem dúvidas?</p>
+      <a
+        href="https://wa.me/5561984057851"
+        class="inline-block px-8 py-4 bg-primary text-white font-semibold rounded-lg hover:bg-blue-600 transition-colors shadow-lg hover:shadow-xl active:scale-95"
+      >
+        Pedir orçamento agora
+      </a>
+    </div>
+  </div>
+</section>

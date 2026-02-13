@@ -1,0 +1,109 @@
+---
+interface Props {
+  title: string;
+  subtitle: string;
+  ctaText: string;
+  ctaUrl: string;
+  backgroundImage?: string;
+  isDark?: boolean;
+}
+
+const {
+  title,
+  subtitle,
+  ctaText,
+  ctaUrl,
+  backgroundImage,
+  isDark = backgroundImage ? true : false
+} = Astro.props;
+---
+
+<section
+  class={`
+    w-full h-[70vh] flex items-center justify-center relative overflow-hidden
+    ${isDark ? 'bg-gradient-to-br from-gray-900 to-gray-800' : 'bg-gradient-to-br from-blue-50 to-indigo-100'}
+  `}
+  style={backgroundImage ? {
+    backgroundImage: `linear-gradient(rgb(0 38 97 / 81%), rgb(0 36 97 / 88%)), url('${backgroundImage}')`,
+    backgroundSize: 'cover',
+    backgroundPosition: 'center',
+  } : {}}
+>
+  {/* Decorative elements */}
+  <div class="absolute top-0 right-0 w-96 h-96 bg-blue-400/10 rounded-full blur-3xl -z-10"></div>
+  <div class="absolute bottom-0 left-0 w-96 h-96 bg-indigo-400/10 rounded-full blur-3xl -z-10"></div>
+
+  <div class="container mx-auto px-4 py-12 md:py-0">
+    <div class="flex flex-col items-center justify-center text-center h-full">
+      {/* Main content */}
+      <div class="max-w-3xl">
+        <h1
+          class={`
+            text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight
+            ${isDark ? 'text-white' : 'text-gray-900'}
+          `}
+        >
+          {title}
+        </h1>
+
+        <p
+          class={`
+            text-lg md:text-xl lg:text-2xl mb-10 leading-relaxed
+            ${isDark ? 'text-gray-300' : 'text-gray-700'}
+          `}
+        >
+          {subtitle}
+        </p>
+
+        {/* CTA Buttons */}
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+          <a
+            href={ctaUrl}
+            class="inline-block px-8 py-4 md:py-5 bg-primary text-white font-semibold rounded-lg hover:bg-blue-600 transition-all duration-300 active:scale-95 shadow-lg hover:shadow-xl text-lg touch-friendly"
+          >
+            {ctaText}
+          </a>
+          <a
+            href="#services"
+            class={`
+              inline-block px-8 py-4 md:py-5 font-semibold rounded-lg transition-all duration-300 active:scale-95 shadow-lg hover:shadow-xl text-lg touch-friendly
+              ${isDark
+                ? 'bg-white/10 text-white hover:bg-white/20 border-2 border-white/30'
+                : 'bg-white text-primary hover:bg-gray-50 border-2 border-gray-200'}
+            `}
+          >
+            Saiba Mais
+          </a>
+        </div>
+      </div>
+
+      {/* Scroll indicator */}
+      <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
+        <svg
+          class={`w-6 h-6 ${isDark ? 'text-white' : 'text-gray-700'}`}
+          fill="none"
+          stroke="currentColor"
+          viewBox="0 0 24 24"
+          aria-label="Scroll down"
+        >
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+        </svg>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  @keyframes bounce {
+    0%, 100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-10px);
+    }
+  }
+
+  .animate-bounce {
+    animation: bounce 2s infinite;
+  }
+</style>

@@ -1,0 +1,101 @@
+---
+// Handyman Services
+const services = [
+  {
+    name: "Serviços Elétricos",
+    description: "Reparação, instalação e manutenção elétrica com segurança garantida. Disjuntores, pontos de luz e diagnósticos profissionais.",
+    icon: "M13 10V3L4 14h7v7l9-11h-7z",
+    url: "/servicos"
+  },
+  {
+    name: "Serviços Hidráulicos",
+    description: "Reparação de encanação, vazamentos e instalações com qualidade. Limpeza de tubulações e diagnóstico de problemas.",
+    icon: "M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z",
+    url: "/servicos"
+  },
+  {
+    name: "Desentupimento",
+    description: "Serviço rápido e eficaz com equipamentos modernos. Pias, vasos, ralos e tubulações sem sujeira.",
+    icon: "M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z",
+    url: "/servicos"
+  },
+  {
+    name: "Instalações",
+    description: "Prateleiras, espelhos, quadros, ar condicionado e luminárias. Trabalho preciso e instalação profissional.",
+    icon: "M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-9 5h.01",
+    url: "/servicos"
+  },
+  {
+    name: "Montagem e Desmontagem",
+    description: "Móveis, eletrodomésticos e mais com cuidado. Serviço com segurança, limpeza final incluída.",
+    icon: "M18.364 5.636l-3.536 3.536m0 5.656l3.536 3.536M9.172 9.172L5.636 5.636m3.536 9.192l-3.536 3.536M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-5 0a4 4 0 11-8 0 4 4 0 018 0z",
+    url: "/servicos"
+  },
+  {
+    name: "Reparos em Geral",
+    description: "Vidros, dobradiças, fechaduras e lacres. Pequenos reparos variados com soluções rápidas e econômicas.",
+    icon: "M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z",
+    url: "/servicos"
+  }
+];
+
+const servicesSchema = services.map((service) => ({
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "name": service.name,
+  "description": service.description,
+  "provider": {
+    "@type": "LocalBusiness",
+    "name": "EO Marido de Aluguel",
+    "url": "https://eomaridodealuguel.com.br",
+    "areaServed": "Águas Claras, Brasília - DF"
+  },
+  "serviceType": "Reparos Residenciais",
+  "areaServed": "Águas Claras, Brasília - DF"
+}));
+---
+
+<!-- Service Schema JSON-LD -->
+{servicesSchema.map((schema) => (
+  <script type="application/ld+json">
+    {JSON.stringify(schema)}
+  </script>
+))}
+
+<section class="py-12 md:py-16 lg:py-20 bg-gray-50">
+  <div class="container mx-auto px-4">
+    <div class="text-center mb-12 md:mb-16">
+      <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+        Nossos Serviços
+      </h2>
+      <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+        Serviços elétricos, hidráulicos, desentupimento, instalações e muito mais em Águas Claras.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+      {services.map((service) => (
+        <div class="bg-white p-6 md:p-8 rounded-lg shadow-md hover:shadow-lg transition-shadow">
+          <div class="w-14 h-14 bg-blue-100 rounded-lg flex items-center justify-center mb-4">
+            <svg class="w-8 h-8 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d={service.icon} />
+            </svg>
+          </div>
+          <h3 class="text-xl font-bold mb-3 text-gray-900">{service.name}</h3>
+          <p class="text-gray-600 text-sm leading-relaxed">
+            {service.description}
+          </p>
+        </div>
+      ))}
+    </div>
+
+    <div class="text-center mt-12 md:mt-16">
+      <a
+        href="/servicos"
+        class="inline-block px-8 py-4 bg-primary text-white font-semibold rounded-lg hover:bg-blue-600 transition-colors shadow-lg hover:shadow-xl active:scale-95"
+      >
+        Ver Todos os Serviços
+      </a>
+    </div>
+  </div>
+</section>

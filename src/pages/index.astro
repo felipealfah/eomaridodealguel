@@ -1,0 +1,50 @@
+---
+import BaseLayout from '@layouts/BaseLayout.astro';
+import Hero from '@components/Hero.astro';
+import Services from '@components/Services.astro';
+import Differentials from '@components/Differentials.astro';
+import AboutCompany from '@components/AboutCompany.astro';
+import ServiceArea from '@components/ServiceArea.astro';
+import Testimonials from '@components/Testimonials.astro';
+import FAQ from '@components/FAQ.astro';
+import CTA from '@components/CTA.astro';
+---
+
+<BaseLayout title="Marido de Aluguel em Águas Claras - Serviços Elétricos, Hidráulicos e Reparos" description="Marido de Aluguel em Águas Claras - Serviços elétricos, hidráulicos, desentupimento, montagem, desmontagem e reparos residenciais. Atendimento rápido e qualificado.">
+  {/* 1. Hero Section */}
+  <Hero
+    title="Marido de Aluguel em Águas Claras"
+    subtitle="Serviços elétricos, hidráulicos, desentupimento, montagem, desmontagem e reparos em geral. Profissionais qualificados com atendimento rápido em Águas Claras!"
+    ctaText="Solicitar Orçamento"
+    ctaUrl="https://wa.me/5561984057851"
+    backgroundImage="/hero_eomaridodealuguelaguasclaras.webp"
+  />
+
+  {/* 2. Serviços */}
+  <Services />
+
+  {/* 3. Diferenciais */}
+  <Differentials />
+
+  {/* 4. Sobre a Empresa */}
+  <AboutCompany />
+
+  {/* 5. Área de Atendimento */}
+  <ServiceArea />
+
+  {/* 6. Depoimentos */}
+  <Testimonials />
+
+  {/* 7. FAQ */}
+  <FAQ />
+
+  {/* 8. CTA Final */}
+  <CTA
+    title="Precisa de um reparador confiável?"
+    description="Entre em contato agora e solicite seu orçamento! Resolvemos seus problemas com rapidez e qualidade."
+    primaryText="Solicitar Orçamento"
+    primaryUrl="https://wa.me/5561984057851"
+    secondaryText="Ver Serviços"
+    secondaryUrl="/servicos"
+  />
+</BaseLayout>

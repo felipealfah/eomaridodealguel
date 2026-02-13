@@ -1,0 +1,85 @@
+---
+// Review Schema para Google
+const reviewsSchema = {
+  "@context": "https://schema.org",
+  "@type": "AggregateRating",
+  "ratingValue": "5",
+  "bestRating": "5",
+  "worstRating": "1",
+  "ratingCount": "3",
+  "reviewCount": "3"
+};
+
+const reviews = [
+  {
+    name: "Carlos Eduardo",
+    company: "Moradia em Águas Claras",
+    text: "Precisava de um eletricista rápido para reinstalar meus pontos de luz. Chegaram no mesmo dia, trabalho excelente e super profissional. Voltaria a chamar com certeza!",
+    initials: "CE",
+    rating: 5
+  },
+  {
+    name: "Ana Paula",
+    company: "Apartamento Residencial",
+    text: "Meu chuveiro piscava água há dias. Resolveram o problema em menos de uma hora com qualidade garantida. Que alívio! Super recomendo para todos que moram em Águas Claras.",
+    initials: "AP",
+    rating: 5
+  },
+  {
+    name: "Roberto Alves",
+    company: "Casa em Brasília",
+    text: "Minha pia e sanitário fizeram um entupimento horrível. Chegaram rápido com equipamento profissional e resolveram em pouco tempo, sem deixar sujeira. Excelente atendimento!",
+    initials: "RA",
+    rating: 5
+  }
+];
+---
+
+<!-- Aggregate Rating Schema JSON-LD -->
+<script type="application/ld+json">
+  {JSON.stringify(reviewsSchema)}
+</script>
+
+<section class="py-12 md:py-16 lg:py-20 bg-gradient-to-br from-blue-50 to-indigo-50">
+  <div class="container mx-auto px-4">
+    <div class="text-center mb-12 md:mb-16">
+      <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+        O que dizem nossos clientes
+      </h2>
+      <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+        Satisfação garantida em cada serviço de encanamento, elétrica e desentupimento
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+      {reviews.map((review) => (
+        <div class="bg-white p-6 md:p-8 rounded-lg shadow-md hover:shadow-lg transition-shadow">
+          {/* Star Rating */}
+          <div class="flex gap-1 mb-4">
+            {[...Array(review.rating)].map(() => (
+              <svg class="w-5 h-5 text-yellow-400 fill-current" viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
+              </svg>
+            ))}
+          </div>
+
+          {/* Review Text */}
+          <p class="text-gray-600 mb-6 leading-relaxed">
+            "{review.text}"
+          </p>
+
+          {/* Author Info */}
+          <div class="flex items-center gap-4 pt-4 border-t border-gray-100">
+            <div class="w-12 h-12 rounded-full bg-primary text-white flex items-center justify-center font-bold text-sm">
+              {review.initials}
+            </div>
+            <div>
+              <h4 class="font-semibold text-gray-900 text-sm">{review.name}</h4>
+              <p class="text-xs text-gray-600">{review.company}</p>
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

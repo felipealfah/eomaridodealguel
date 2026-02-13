@@ -1,0 +1,76 @@
+---
+interface Props {
+  title: string;
+  description?: string;
+  primaryText: string;
+  primaryUrl: string;
+  secondaryText?: string;
+  secondaryUrl?: string;
+  layout?: 'horizontal' | 'vertical';
+}
+
+const {
+  title,
+  description,
+  primaryText,
+  primaryUrl,
+  secondaryText,
+  secondaryUrl,
+  layout = 'horizontal',
+} = Astro.props;
+---
+
+<section class="w-full bg-gradient-to-r from-primary to-blue-600 py-12 md:py-16 lg:py-20">
+  <div class="container mx-auto px-4">
+    <div
+      class={`flex flex-col gap-6 md:gap-8 ${
+        layout === 'vertical' ? 'items-center text-center' : 'md:flex-row md:items-center md:justify-between'
+      }`}
+    >
+      {/* Content */}
+      <div class={layout === 'vertical' ? 'w-full' : 'flex-1'}>
+        <h2 class="text-3xl md:text-4xl font-bold text-white mb-3 md:mb-4 leading-tight">
+          {title}
+        </h2>
+        {
+          description && (
+            <p class="text-lg text-blue-100 mb-6 md:mb-0">
+              {description}
+            </p>
+          )
+        }
+      </div>
+
+      {/* Buttons */}
+      <div
+        class={`flex flex-col sm:flex-row gap-3 sm:gap-4 ${
+          layout === 'vertical' ? 'w-full sm:flex-col' : ''
+        }`}
+      >
+        <a
+          href={primaryUrl}
+          class="flex items-center justify-center px-6 py-4 md:px-8 md:py-5 bg-white text-primary font-semibold rounded-lg hover:bg-gray-100 transition-all shadow-lg hover:shadow-xl active:scale-95 touch-friendly text-center sm:text-left"
+        >
+          {primaryText}
+        </a>
+        {
+          secondaryText && secondaryUrl && (
+            <a
+              href={secondaryUrl}
+              class="flex items-center justify-center px-6 py-4 md:px-8 md:py-5 bg-transparent border-2 border-white text-white font-semibold rounded-lg hover:bg-white hover:bg-opacity-10 transition-all active:scale-95 touch-friendly text-center sm:text-left"
+            >
+              {secondaryText}
+            </a>
+          )
+        }
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .touch-friendly {
+    min-height: 48px;
+    min-width: 48px;
+  }
+</style>

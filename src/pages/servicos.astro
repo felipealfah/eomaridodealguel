@@ -1,0 +1,295 @@
+---
+import BaseLayout from '@layouts/BaseLayout.astro';
+import Breadcrumb from '@components/Breadcrumb.astro';
+import CTA from '@components/CTA.astro';
+
+// Breadcrumb items
+const breadcrumbItems = [
+  { name: 'Início', url: '/' },
+  { name: 'Serviços', url: '/servicos' }
+];
+
+// Service data with detailed information
+const services = [
+  {
+    id: 'servicos-eletricos',
+    name: 'Serviços Elétricos',
+    description: 'Serviços elétricos completos em Águas Claras: reparação, instalação e manutenção elétrica com segurança garantida.',
+    features: [
+      'Reparação de disjuntores',
+      'Instalação de pontos de luz',
+      'Troca de fiação danificada',
+      'Diagnóstico de problemas elétricos',
+      'Serviços de emergência 24h',
+      'Garantia do trabalho realizado'
+    ],
+    price: 'A partir de R$ 150',
+    icon: 'M13 10V3L4 14h7v7l9-11h-7z',
+    benefits: [
+      'Segurança garantida',
+      'Profissional experiente',
+      'Atendimento rápido',
+      'Problema resolvido'
+    ]
+  },
+  {
+    id: 'servicos-hidraulicos',
+    name: 'Serviços Hidráulicos',
+    description: 'Serviços hidráulicos em Águas Claras: reparação de encanação, vazamentos e instalações com qualidade.',
+    features: [
+      'Reparação de vazamentos',
+      'Troca de canos e tubulações',
+      'Instalação de chuveiros',
+      'Limpeza de tubulações',
+      'Diagnóstico de problemas',
+      'Serviços de emergência 24h'
+    ],
+    price: 'A partir de R$ 120',
+    icon: 'M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z',
+    benefits: [
+      'Água limpa garantida',
+      'Sem trancos',
+      'Profissional dedicado',
+      'Solução permanente'
+    ]
+  },
+  {
+    id: 'desentupimento',
+    name: 'Desentupimento',
+    description: 'Serviço de desentupimento em Águas Claras com equipamentos modernos. Rápido, eficaz e sem sujeira.',
+    features: [
+      'Desentupimento de pia',
+      'Desentupimento de vaso',
+      'Limpeza de ralos',
+      'Desentupimento de tubulação',
+      'Equipamento a motor profissional',
+      'Atendimento rápido'
+    ],
+    price: 'A partir de R$ 100',
+    icon: 'M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z',
+    benefits: [
+      'Desobstrução rápida',
+      'Sem sujeira',
+      'Água fluindo normalmente',
+      'Problema resolvido'
+    ]
+  },
+  {
+    id: 'instalacoes',
+    name: 'Instalações',
+    description: 'Serviços de instalação em geral: prateleiras, espelhos, quadros, ar condicionado e mais em Águas Claras.',
+    features: [
+      'Instalação de prateleiras',
+      'Pendurar quadros e espelhos',
+      'Instalação de ar condicionado',
+      'Instalação de luminárias',
+      'Instalação de cortinas e varões',
+      'Trabalho preciso e limpo'
+    ],
+    price: 'A partir de R$ 80',
+    icon: 'M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-9 5h.01',
+    benefits: [
+      'Instalação profissional',
+      'Trabalho preciso',
+      'Serviço rápido',
+      'Presença estética mantida'
+    ]
+  },
+  {
+    id: 'montagem-desmontagem',
+    name: 'Montagem e Desmontagem',
+    description: 'Serviços de montagem e desmontagem em Águas Claras: móveis, eletrodomésticos e mais com cuidado.',
+    features: [
+      'Montagem de móveis',
+      'Montagem de eletrodomésticos',
+      'Desmontagem de móveis',
+      'Desmontagem de espelhos',
+      'Serviço com cuidado e segurança',
+      'Limpeza final incluída'
+    ],
+    price: 'A partir de R$ 100',
+    icon: 'M18.364 5.636l-3.536 3.536m0 5.656l3.536 3.536M9.172 9.172L5.636 5.636m3.536 9.192l-3.536 3.536M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-5 0a4 4 0 11-8 0 4 4 0 018 0z',
+    benefits: [
+      'Trabalho cuidadoso',
+      'Profissional experiente',
+      'Rápido e eficiente',
+      'Paz de espírito'
+    ]
+  },
+  {
+    id: 'reparos-gerais',
+    name: 'Reparos em Geral',
+    description: 'Reparos residenciais diversos em Águas Claras: vidros, dobradiças, fechaduras, lacres e muito mais.',
+    features: [
+      'Troca de vidros',
+      'Reparar dobradiças',
+      'Troca de fechaduras',
+      'Reparação de lacres',
+      'Pequenos reparos variados',
+      'Soluções rápidas e econômicas'
+    ],
+    price: 'A partir de R$ 80',
+    icon: 'M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z',
+    benefits: [
+      'Casa em perfeito estado',
+      'Profissional versátil',
+      'Serviço rápido',
+      'Preço acessível'
+    ]
+  }
+];
+
+// Service Schema
+const serviceSchema = services.map((service) => ({
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "name": service.name,
+  "description": service.description,
+  "provider": {
+    "@type": "LocalBusiness",
+    "name": "EO Marido de Aluguel",
+    "url": "https://eomaridodealuguel.com.br",
+    "areaServed": "Águas Claras, Brasília - DF"
+  },
+  "serviceType": "Reparos Residenciais",
+  "areaServed": "Águas Claras, Brasília - DF",
+  "priceRange": service.price
+}));
+---
+
+<BaseLayout title="6 Serviços de Marido de Aluguel em Águas Claras - Eletricista, Encanador, Desentupidor" description="Conheça nossos 6 serviços profissionais em Águas Claras: Elétricos (eletricista), Hidráulicos (encanador), Desentupimento, Instalações, Montagem/Desmontagem e Reparos. Atendimento rápido e garantia satisfação!">
+  {/* Service Schema */}
+  {serviceSchema.map((schema) => (
+    <script type="application/ld+json">
+      {JSON.stringify(schema)}
+    </script>
+  ))}
+
+  {/* Hero Section */}
+  <section class="py-20 md:py-32 bg-gradient-to-br from-blue-50 to-indigo-50">
+    <div class="container mx-auto px-4 text-center">
+      <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-6">
+        Serviços de Marido de Aluguel
+      </h1>
+      <p class="text-xl md:text-2xl text-gray-600 max-w-3xl mx-auto">
+        Serviços elétricos, hidráulicos, desentupimento, instalações, montagem/desmontagem e reparos gerais em Águas Claras
+      </p>
+    </div>
+  </section>
+
+  {/* Breadcrumb */}
+  <Breadcrumb items={breadcrumbItems} />
+
+  {/* Services Grid */}
+  <section class="py-12 md:py-16 lg:py-20 bg-white">
+    <div class="container mx-auto px-4">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {services.map((service) => (
+          <div class="bg-white p-8 rounded-lg shadow-md hover:shadow-xl transition-shadow border border-gray-100">
+            {/* Icon */}
+            <div class="w-16 h-16 bg-blue-100 rounded-lg flex items-center justify-center mb-6">
+              <svg class="w-8 h-8 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d={service.icon} />
+              </svg>
+            </div>
+
+            {/* Title and Description */}
+            <h3 class="text-2xl font-bold text-gray-900 mb-3">{service.name}</h3>
+            <p class="text-gray-600 mb-6 leading-relaxed">{service.description}</p>
+
+            {/* Price */}
+            <div class="mb-6 pb-6 border-b border-gray-200">
+              <p class="text-lg font-semibold text-primary">{service.price}</p>
+            </div>
+
+            {/* Features */}
+            <div class="mb-8">
+              <h4 class="font-semibold text-gray-900 mb-3">Incluso:</h4>
+              <ul class="space-y-2">
+                {service.features.map((feature) => (
+                  <li class="flex items-start text-sm text-gray-600">
+                    <span class="text-primary mr-3 font-bold">✓</span>
+                    <span>{feature}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            {/* CTA Button */}
+            <a href="https://wa.me/5561984057851" class="w-full inline-block text-center px-6 py-3 bg-primary text-white font-semibold rounded-lg hover:bg-blue-600 transition-colors">
+              Solicitar Orçamento
+            </a>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  {/* Service Comparison */}
+  <section class="py-12 md:py-16 lg:py-20 bg-gray-50">
+    <div class="container mx-auto px-4">
+      <div class="text-center mb-12 md:mb-16">
+        <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+          Por que escolher a EO Marido de Aluguel?
+        </h2>
+        <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+          Diferenciais que garantem qualidade e satisfação
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        {/* Diferential 1 */}
+        <div class="bg-white p-8 rounded-lg shadow-md text-center">
+          <div class="w-16 h-16 bg-blue-100 rounded-lg flex items-center justify-center mx-auto mb-6">
+            <svg class="w-8 h-8 text-primary" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>
+          </div>
+          <h3 class="text-lg font-bold text-gray-900 mb-3">Atendimento Rápido</h3>
+          <p class="text-gray-600 text-sm">Agendamento para o mesmo dia. Atendimento ágil em Águas Claras e Brasília</p>
+        </div>
+
+        {/* Diferential 2 */}
+        <div class="bg-white p-8 rounded-lg shadow-md text-center">
+          <div class="w-16 h-16 bg-blue-100 rounded-lg flex items-center justify-center mx-auto mb-6">
+            <svg class="w-8 h-8 text-primary" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M13 10V3L4 14h7v7l9-11h-7z" />
+            </svg>
+          </div>
+          <h3 class="text-lg font-bold text-gray-900 mb-3">Trabalho Profissional</h3>
+          <p class="text-gray-600 text-sm">Profissionais qualificados com +30 anos de experiência combinada</p>
+        </div>
+
+        {/* Diferential 3 */}
+        <div class="bg-white p-8 rounded-lg shadow-md text-center">
+          <div class="w-16 h-16 bg-blue-100 rounded-lg flex items-center justify-center mx-auto mb-6">
+            <svg class="w-8 h-8 text-primary" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>
+          </div>
+          <h3 class="text-lg font-bold text-gray-900 mb-3">Preços Transparentes</h3>
+          <p class="text-gray-600 text-sm">Orçamento claro sem surpresas. Você sabe exatamente o valor antes do serviço</p>
+        </div>
+
+        {/* Diferential 4 */}
+        <div class="bg-white p-8 rounded-lg shadow-md text-center">
+          <div class="w-16 h-16 bg-blue-100 rounded-lg flex items-center justify-center mx-auto mb-6">
+            <svg class="w-8 h-8 text-primary" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M18.364 5.636l-3.536 3.536m0 5.656l3.536 3.536M9.172 9.172L5.636 5.636m3.536 9.192l-3.536 3.536M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-5 0a4 4 0 11-8 0 4 4 0 018 0z" />
+            </svg>
+          </div>
+          <h3 class="text-lg font-bold text-gray-900 mb-3">Garantia Satisfação</h3>
+          <p class="text-gray-600 text-sm">100% de satisfação garantida. Refazemos sem cobrar se não ficar satisfeito</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  {/* CTA Section */}
+  <CTA
+    title="Precisa de um reparador confiável?"
+    description="Entre em contato agora e solicite seu orçamento sem compromisso!"
+    primaryText="Pedir Orçamento"
+    primaryUrl="https://wa.me/5561984057851"
+  />
+</BaseLayout>

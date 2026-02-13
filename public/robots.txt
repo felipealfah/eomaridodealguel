@@ -1,0 +1,18 @@
+User-agent: *
+Allow: /
+Disallow: /admin
+Disallow: /private
+
+Sitemap: https://eomaridodealuguel.com.br/sitemap-index.xml
+
+# Delay for aggressive crawlers
+User-agent: *
+Crawl-delay: 1
+
+# Google
+User-agent: Googlebot
+Crawl-delay: 0
+
+# Bing
+User-agent: Bingbot
+Crawl-delay: 1

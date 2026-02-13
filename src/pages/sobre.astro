@@ -1,0 +1,285 @@
+---
+import BaseLayout from '@layouts/BaseLayout.astro';
+import Breadcrumb from '@components/Breadcrumb.astro';
+import CTA from '@components/CTA.astro';
+
+// Breadcrumb items
+const breadcrumbItems = [
+  { name: 'Início', url: '/' },
+  { name: 'Sobre', url: '/sobre' }
+];
+
+// Organization Schema com informações detalhadas
+const organizationSchema = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "EO Marido de Aluguel",
+  "description": "Marido de Aluguel em Águas Claras - Serviços profissionais: elétricos, hidráulicos, desentupimento, montagem e reparos residenciais",
+  "url": "https://eomaridodealuguel.com.br",
+  "logo": "https://eomaridodealuguel.com.br/eomaridodealuguel.png",
+  "image": "https://eomaridodealuguel.com.br/about-image.jpg",
+  "foundingDate": "2019",
+  "founders": [
+    {
+      "@type": "Person",
+      "name": "EO Equipe Profissional",
+      "jobTitle": "Proprietário/Gerente",
+      "url": "https://eomaridodealuguel.com.br/sobre"
+    }
+  ],
+  "employees": [
+    {
+      "@type": "Person",
+      "name": "Eletricista Profissional",
+      "jobTitle": "Eletricista em Águas Claras"
+    },
+    {
+      "@type": "Person",
+      "name": "Encanador Qualificado",
+      "jobTitle": "Encanador em Águas Claras"
+    },
+    {
+      "@type": "Person",
+      "name": "Especialista em Desentupimentos",
+      "jobTitle": "Desentupidor em Águas Claras"
+    }
+  ],
+  "sameAs": [
+    "https://www.facebook.com/eomaridodealuguel",
+    "https://www.instagram.com/eomaridodealuguel",
+    "https://www.whatsapp.com/eomaridodealuguel"
+  ],
+  "contactPoint": {
+    "@type": "ContactPoint",
+    "contactType": "Customer Service",
+    "telephone": "+55-61-98405-7851",
+    "email": "contato@eomaridodealuguel.com.br",
+    "areaServed": "Águas Claras, Brasília - DF"
+  },
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Águas Claras",
+    "addressLocality": "Águas Claras",
+    "addressRegion": "DF",
+    "addressCountry": "BR"
+  },
+  "areaServed": [
+    {
+      "@type": "Place",
+      "name": "Águas Claras"
+    },
+    {
+      "@type": "Place",
+      "name": "Brasília - DF"
+    }
+  ]
+};
+---
+
+<BaseLayout title="Sobre EO Marido de Aluguel - 10+ Anos de Experiência em Águas Claras, Brasília" description="Conheça a história, missão e valores da EO Marido de Aluguel. Mais de 10 anos atendendo Águas Claras com serviços elétricos, hidráulicos, desentupimento e reparos residenciais. Profissionais qualificados em Brasília.">
+  {/* Organization Schema */}
+  <script type="application/ld+json">
+    {JSON.stringify(organizationSchema)}
+  </script>
+
+  {/* Hero Section */}
+  <section class="py-20 md:py-32 bg-gradient-to-br from-blue-50 to-indigo-50">
+    <div class="container mx-auto px-4 text-center">
+      <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-6">
+        Quem Somos
+      </h1>
+      <p class="text-xl md:text-2xl text-gray-600 max-w-3xl mx-auto">
+        Profissionais qualificados em pequenos reparos residenciais com excelência e confiança
+      </p>
+    </div>
+  </section>
+
+  {/* Breadcrumb */}
+  <Breadcrumb items={breadcrumbItems} />
+
+  {/* About Section */}
+  <section class="py-12 md:py-16 lg:py-20 bg-white">
+    <div class="container mx-auto px-4">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 items-center">
+        {/* Text Content */}
+        <div>
+          <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
+            Nossa História
+          </h2>
+          <p class="text-lg text-gray-600 mb-4 leading-relaxed">
+            Desde 2016, somos a empresa referência em pequenos reparos residenciais em Águas Claras e região de Brasília. Nossa missão é ser o marido de aluguel confiável que você procura quando precisa de um eletricista, encanador ou desentupidor profissional.
+          </p>
+          <p class="text-lg text-gray-600 mb-4 leading-relaxed">
+            Começamos com um simples objetivo: resolver problemas residenciais de forma rápida, limpa e com preços justos em Águas Claras. Nossas técnicas consolidadas e equipe experiente com +30 anos de experiência combinada garantem satisfação garantida em cada trabalho realizado.
+          </p>
+          <p class="text-lg text-gray-600 leading-relaxed">
+            O que nos diferencia? Nossa dedicação ao trabalho bem feito e atendimento rápido em Águas Claras e Brasília. Cada reparação é executada com precisão, cada cliente recebe atendimento respeitoso, e cada problema tem solução durável. Somos especializados em atender os moradores de Águas Claras com eficiência e qualidade.
+          </p>
+        </div>
+
+        {/* Team Image */}
+        <div class="relative h-96 md:h-96 rounded-lg overflow-hidden shadow-lg">
+          <img src="/equipeeomaridodealuguel.png" alt="Equipe EO Marido de Aluguel em Águas Claras - Profissionais especializados em eletricista, encanador e desentupimento" class="w-full h-full object-cover" />
+      </div>
+    </div>
+  </section>
+
+  {/* Mission, Vision, Values */}
+  <section class="py-12 md:py-16 lg:py-20 bg-gray-50">
+    <div class="container mx-auto px-4">
+      <div class="text-center mb-12 md:mb-16">
+        <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+          Nossa Missão, Visão e Valores
+        </h2>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        {/* Missão */}
+        <div class="bg-white p-8 rounded-lg shadow-md hover:shadow-lg transition-shadow">
+          <div class="w-16 h-16 bg-blue-100 rounded-lg flex items-center justify-center mb-6">
+            <svg class="w-8 h-8 text-primary" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M13 10V3L4 14h7v7l9-11h-7z" />
+            </svg>
+          </div>
+          <h3 class="text-2xl font-bold text-gray-900 mb-4">Missão</h3>
+          <p class="text-gray-600 leading-relaxed">
+            Fornecer serviços de reparos residenciais de qualidade com profissionalismo, confiabilidade e preços acessíveis para os moradores de Águas Claras e região de Brasília, sendo o marido de aluguel mais confiável do Distrito Federal.
+          </p>
+        </div>
+
+        {/* Visão */}
+        <div class="bg-white p-8 rounded-lg shadow-md hover:shadow-lg transition-shadow">
+          <div class="w-16 h-16 bg-blue-100 rounded-lg flex items-center justify-center mb-6">
+            <svg class="w-8 h-8 text-primary" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+              <path d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+            </svg>
+          </div>
+          <h3 class="text-2xl font-bold text-gray-900 mb-4">Visão</h3>
+          <p class="text-gray-600 leading-relaxed">
+            Ser o serviço de marido de aluguel mais confiável e procurado em Águas Claras e Brasília, conhecido pela qualidade, rapidez de atendimento, limpeza e satisfação 100% dos clientes.
+          </p>
+        </div>
+
+        {/* Valores */}
+        <div class="bg-white p-8 rounded-lg shadow-md hover:shadow-lg transition-shadow">
+          <div class="w-16 h-16 bg-blue-100 rounded-lg flex items-center justify-center mb-6">
+            <svg class="w-8 h-8 text-primary" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>
+          </div>
+          <h3 class="text-2xl font-bold text-gray-900 mb-4">Valores</h3>
+          <ul class="text-gray-600 space-y-2">
+            <li class="flex items-start">
+              <span class="text-primary mr-2">✓</span>
+              <span>Qualidade em cada trabalho</span>
+            </li>
+            <li class="flex items-start">
+              <span class="text-primary mr-2">✓</span>
+              <span>Atendimento respeitoso</span>
+            </li>
+            <li class="flex items-start">
+              <span class="text-primary mr-2">✓</span>
+              <span>Pontualidade garantida</span>
+            </li>
+            <li class="flex items-start">
+              <span class="text-primary mr-2">✓</span>
+              <span>Preços transparentes e justos</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  {/* Team Section */}
+  <section class="py-12 md:py-16 lg:py-20 bg-white">
+    <div class="container mx-auto px-4">
+      <div class="text-center mb-12 md:mb-16">
+        <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+          Nossos Especialistas
+        </h2>
+        <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+          Profissionais qualificados com experiência combinada de +30 anos em reparos residenciais
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {/* Team Member 1 */}
+        <div class="text-center">
+          <div class="w-32 h-32 mx-auto mb-6 bg-gradient-to-br from-blue-100 to-indigo-100 rounded-full flex items-center justify-center">
+            <svg class="w-16 h-16 text-blue-300" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z" />
+            </svg>
+          </div>
+          <h3 class="text-xl font-bold text-gray-900 mb-2">Eletricista Profissional</h3>
+          <p class="text-gray-600 mb-3">Instalações e Reparos Elétricos</p>
+          <p class="text-sm text-gray-500">+12 anos de experiência em elétrica residencial</p>
+        </div>
+
+        {/* Team Member 2 */}
+        <div class="text-center">
+          <div class="w-32 h-32 mx-auto mb-6 bg-gradient-to-br from-blue-100 to-indigo-100 rounded-full flex items-center justify-center">
+            <svg class="w-16 h-16 text-blue-300" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z" />
+            </svg>
+          </div>
+          <h3 class="text-xl font-bold text-gray-900 mb-2">Encanador Qualificado</h3>
+          <p class="text-gray-600 mb-3">Encanação e Vazamentos</p>
+          <p class="text-sm text-gray-500">+10 anos de experiência em encanação residencial</p>
+        </div>
+
+        {/* Team Member 3 */}
+        <div class="text-center">
+          <div class="w-32 h-32 mx-auto mb-6 bg-gradient-to-br from-blue-100 to-indigo-100 rounded-full flex items-center justify-center">
+            <svg class="w-16 h-16 text-blue-300" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z" />
+            </svg>
+          </div>
+          <h3 class="text-xl font-bold text-gray-900 mb-2">Especialista em Desentupimentos</h3>
+          <p class="text-gray-600 mb-3">Limpeza de Tubulações</p>
+          <p class="text-sm text-gray-500">+8 anos resolvendo entupimentos com equipamentos modernos</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  {/* Stats Section */}
+  <section class="py-12 md:py-16 lg:py-20 bg-gradient-to-r from-blue-600 to-indigo-600">
+    <div class="container mx-auto px-4">
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-8 text-center">
+        {/* Stat 1 */}
+        <div>
+          <div class="text-4xl md:text-5xl font-bold text-white mb-2">2000+</div>
+          <p class="text-blue-100">Clientes Atendidos</p>
+        </div>
+
+        {/* Stat 2 */}
+        <div>
+          <div class="text-4xl md:text-5xl font-bold text-white mb-2">10+</div>
+          <p class="text-blue-100">Anos de Mercado</p>
+        </div>
+
+        {/* Stat 3 */}
+        <div>
+          <div class="text-4xl md:text-5xl font-bold text-white mb-2">24h</div>
+          <p class="text-blue-100">Resposta em Emergências</p>
+        </div>
+
+        {/* Stat 4 */}
+        <div>
+          <div class="text-4xl md:text-5xl font-bold text-white mb-2">100%</div>
+          <p class="text-blue-100">Taxa de Satisfação</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  {/* CTA Section */}
+  <CTA
+    title="Precisa de um reparador confiável?"
+    description="Estamos prontos para resolver seu problema com rapidez, profissionalismo e qualidade garantida."
+    primaryText="Pedir Orçamento"
+    primaryUrl="https://wa.me/5561984057851"
+  />
+</BaseLayout>
