@@ -1,0 +1,20 @@
+name = "eomaridodealuguel"
+type = "javascript"
+account_id = ""
+workers_dev = true
+route = ""
+zone_id = ""
+
+[env.production]
+routes = [
+  { pattern = "eomaridodealuguel.pages.dev", zone_name = "" }
+]
+
+[build]
+command = "npm run build"
+cwd = "./"
+watch_paths = ["src/**/*.ts", "src/**/*.astro"]
+
+[build.upload]
+format = "modules"
+main = "dist/_worker.js"
