@@ -7,7 +7,7 @@ import compress from 'astro-compress';
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://82caea02.eomaridodealguel.pages.dev',
+  site: 'https://eomaridodealguel.com.br',
 
   integrations: [
     react(),
