@@ -51,10 +51,11 @@ const { title, description } = Astro.props;
     <meta name="twitter:image" content={`${Astro.url}maridodealuguelaguasclaras.png`} />
 
 
-    {/* Prefetch de rotas importantes */}
-    <link rel="prefetch" href="/sobre" />
-    <link rel="prefetch" href="/servicos" />
-    <link rel="prefetch" href="/contato" />
+    {/* Prefetch de rotas importantes (DNS only, sem CSS) */}
+    <link rel="dns-prefetch" href="/" />
+    <link rel="dns-prefetch" href="/sobre" />
+    <link rel="dns-prefetch" href="/servicos" />
+    <link rel="dns-prefetch" href="/contato" />
 
     {/* Structured Data - Organization */}
     <script type="application/ld+json">
