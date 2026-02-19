@@ -160,9 +160,9 @@ const serviceSchema = services.map((service) => ({
 <BaseLayout title="6 Serviços de Marido de Aluguel em Águas Claras - Eletricista, Encanador, Desentupidor" description="Conheça nossos 6 serviços profissionais em Águas Claras: Elétricos (eletricista), Hidráulicos (encanador), Desentupimento, Instalações, Montagem/Desmontagem e Reparos. Atendimento rápido e garantia satisfação!">
   {/* Service Schema */}
   {serviceSchema.map((schema) => (
-    <script type="application/ld+json">
-      {JSON.stringify(schema)}
-    </script>
+    <>
+      <script type="application/ld+json" set:html={JSON.stringify(schema)}></script>
+    </>
   ))}
 
   {/* Hero Section */}

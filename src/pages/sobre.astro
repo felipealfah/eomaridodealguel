@@ -78,9 +78,7 @@ const organizationSchema = {
 
 <BaseLayout title="Sobre EO Marido de Aluguel - 10+ Anos de Experiência em Águas Claras, Brasília" description="Conheça a história, missão e valores da EO Marido de Aluguel. Mais de 10 anos atendendo Águas Claras com serviços elétricos, hidráulicos, desentupimento e reparos residenciais. Profissionais qualificados em Brasília.">
   {/* Organization Schema */}
-  <script type="application/ld+json">
-    {JSON.stringify(organizationSchema)}
-  </script>
+  <script type="application/ld+json" set:html={JSON.stringify(organizationSchema)}></script>
 
   {/* Hero Section */}
   <section class="py-20 md:py-32 bg-gradient-to-br from-blue-50 to-indigo-50">

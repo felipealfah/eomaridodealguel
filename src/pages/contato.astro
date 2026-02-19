@@ -66,9 +66,7 @@ const organizationSchema = {
 
 <BaseLayout title="Contato - Marido de Aluguel em Águas Claras | EO" description="Entre em contato com Marido de Aluguel em Águas Claras para solicitar: serviços elétricos, hidráulicos, desentupimento, montagem e reparos. WhatsApp 24h!">
   {/* Organization Schema */}
-  <script type="application/ld+json">
-    {JSON.stringify(organizationSchema)}
-  </script>
+  <script type="application/ld+json" set:html={JSON.stringify(organizationSchema)}></script>
 
   {/* Hero Section */}
   <section class="py-20 md:py-32 bg-gradient-to-br from-blue-50 to-indigo-50">
