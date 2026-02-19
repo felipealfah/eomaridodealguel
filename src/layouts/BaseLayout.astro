@@ -58,91 +58,85 @@ const { title, description } = Astro.props;
     <link rel="dns-prefetch" href="/contato" />
 
     {/* Structured Data - Organization */}
-    <script type="application/ld+json">
-      {JSON.stringify({
-        "@context": "https://schema.org",
-        "@type": "Organization",
-        "name": "EO Marido de Aluguel",
-        "url": Astro.url.toString(),
-        "logo": `${Astro.url}eomaridodealuguel.png`,
-        "description": "Marido de Aluguel em Águas Claras - Serviços elétricos, hidráulicos, desentupimento, montagem e reparos residenciais",
-        "sameAs": [
-          "https://www.facebook.com/eomaridodealuguel",
-          "https://www.instagram.com/eomaridodealuguel",
-          "https://www.whatsapp.com/eomaridodealuguel"
-        ],
-        "contactPoint": {
-          "@type": "ContactPoint",
-          "contactType": "Customer Service",
-          "telephone": "+55-61-98405-7851",
-          "email": "contato@eomaridodealuguel.com.br"
-        },
-        "areaServed": {
-          "@type": "Place",
-          "name": "Águas Claras, Brasília - DF",
-          "geo": {
-            "@type": "GeoShape",
-            "box": "-15.75 -48.00 -15.78 -47.98"
-          }
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "EO Marido de Aluguel",
+      "url": Astro.url.toString(),
+      "logo": `${Astro.url}eomaridodealuguel.png`,
+      "description": "Marido de Aluguel em Águas Claras - Serviços elétricos, hidráulicos, desentupimento, montagem e reparos residenciais",
+      "sameAs": [
+        "https://www.facebook.com/eomaridodealuguel",
+        "https://www.instagram.com/eomaridodealuguel",
+        "https://www.whatsapp.com/eomaridodealuguel"
+      ],
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "contactType": "Customer Service",
+        "telephone": "+55-61-98405-7851",
+        "email": "contato@eomaridodealuguel.com.br"
+      },
+      "areaServed": {
+        "@type": "Place",
+        "name": "Águas Claras, Brasília - DF",
+        "geo": {
+          "@type": "GeoShape",
+          "box": "-15.75 -48.00 -15.78 -47.98"
         }
-      })}
-    </script>
+      }
+    })}></script>
 
     {/* Structured Data - WebSite */}
-    <script type="application/ld+json">
-      {JSON.stringify({
-        "@context": "https://schema.org",
-        "@type": "WebSite",
-        "name": "EO Marido de Aluguel",
-        "url": Astro.url.toString(),
-        "potentialAction": {
-          "@type": "SearchAction",
-          "target": {
-            "@type": "EntryPoint",
-            "urlTemplate": `${Astro.url.toString()}?q={search_term_string}`
-          },
-          "query-input": "required name=search_term_string"
-        }
-      })}
-    </script>
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "EO Marido de Aluguel",
+      "url": Astro.url.toString(),
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": {
+          "@type": "EntryPoint",
+          "urlTemplate": `${Astro.url.toString()}?q={search_term_string}`
+        },
+        "query-input": "required name=search_term_string"
+      }
+    })}></script>
 
     {/* Structured Data - LocalBusiness */}
-    <script type="application/ld+json">
-      {JSON.stringify({
-        "@context": "https://schema.org",
-        "@type": "LocalBusiness",
-        "name": "EO Marido de Aluguel Águas Claras",
-        "description": "Marido de Aluguel em Águas Claras - Serviços elétricos, hidráulicos, desentupimento, instalações, montagem e reparos residenciais",
-        "image": `${Astro.url}eomaridodealuguel.png`,
-        "url": Astro.url.toString(),
-        "telephone": "+55-61-98405-7851",
-        "email": "contato@eomaridodealuguel.com.br",
-        "address": {
-          "@type": "PostalAddress",
-          "streetAddress": "Águas Claras",
-          "addressLocality": "Brasília",
-          "addressRegion": "DF",
-          "postalCode": "71927-000",
-          "addressCountry": "BR"
-        },
-        "geo": {
-          "@type": "GeoCoordinates",
-          "latitude": "-15.7759",
-          "longitude": "-47.9945"
-        },
-        "openingHoursSpecification": {
-          "@type": "OpeningHoursSpecification",
-          "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
-          "opens": "08:00",
-          "closes": "18:00"
-        },
-        "priceRange": "R$ 80 - R$ 200",
-        "sameAs": [
-          "https://www.facebook.com/eomaridodealuguel",
-          "https://www.instagram.com/eomaridodealuguel"
-        ]
-      })}
-    </script>
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "LocalBusiness",
+      "name": "EO Marido de Aluguel Águas Claras",
+      "description": "Marido de Aluguel em Águas Claras - Serviços elétricos, hidráulicos, desentupimento, instalações, montagem e reparos residenciais",
+      "image": `${Astro.url}eomaridodealuguel.png`,
+      "url": Astro.url.toString(),
+      "telephone": "+55-61-98405-7851",
+      "email": "contato@eomaridodealuguel.com.br",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Águas Claras",
+        "addressLocality": "Brasília",
+        "addressRegion": "DF",
+        "postalCode": "71927-000",
+        "addressCountry": "BR"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": "-15.7759",
+        "longitude": "-47.9945"
+      },
+      "openingHoursSpecification": {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+        "opens": "08:00",
+        "closes": "18:00"
+      },
+      "priceRange": "R$ 80 - R$ 200",
+      "sameAs": [
+        "https://www.facebook.com/eomaridodealuguel",
+        "https://www.instagram.com/eomaridodealuguel"
+      ]
+    })}></script>
   </head>
   <body>
     <Header />
