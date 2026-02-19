@@ -7,7 +7,7 @@ zone_id = ""
 
 [env.production]
 routes = [
-  { pattern = "eomaridodealuguel.pages.dev", zone_name = "" }
+  { pattern = "eomaridodealuguel.com.br", zone_name = "" }
 ]
 
 [build]
